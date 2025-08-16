@@ -1,4 +1,4 @@
-
+Crear Tabla usuarios y un registro de prueba
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
