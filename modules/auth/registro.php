@@ -36,12 +36,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
 
 
+
                 if($stmt->execute([$nombre, $email, $password_hash, $rol])){
                     // Redirigir al login con un mensaje
                     header("Location: /login.php?success=1");
                     exit();
                 }
                 
+
+                
+                if($stmt->execute([$nombre, $email, $password_hash, $rol])){
+                    $success = "Usuario registrado con éxito";
+                } else {
+                    $error = "Error al registrar el usuario";
+                }
+
             }
         } catch(PDOException $e) {
             $error = "Error de base de datos: " . $e->getMessage();
