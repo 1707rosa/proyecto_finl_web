@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conexion.php';
+include '../../config/db.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'] ?? '';
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['id'] = $user['id'];
         $_SESSION['nombre'] = $user['nombre'];
         $_SESSION['rol'] = $user['rol'];
-        header("Location: /dashboard.php");
+        header("Location: ../../incidencias/ver_incidencias.php");
         exit;
     } else {
         echo "Usuario o contraseña incorrectos";

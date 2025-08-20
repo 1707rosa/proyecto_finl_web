@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Verificación de sesión comentada para pruebas
-// if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'reportero') {
-//     header("Location: ../login.php");
-//     exit();
-// }
+ //Verificación de sesión comentada para pruebas
+ if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'reportero') {
+    header("Location: ../login.php");
+     exit();
+ }
 
 include("../config/db.php");
 

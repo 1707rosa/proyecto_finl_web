@@ -31,7 +31,7 @@ $result = $conn->query("SELECT * FROM incidencias ORDER BY created_at DESC");
             <th>Fecha</th>
             <th>Foto</th>
         </tr>
-        <?php while($row = $result->fetch_assoc()): ?>
+        <?php while($row = $result->fetch(PDO::FETCH_ASSOC)): ?>
         <tr>
             <td><?= $row['id'] ?></td>
             <td><?= $row['titulo'] ?></td>
