@@ -34,18 +34,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
                 // Insertar nuevo usuario
                 $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
-                
+
+
                 if($stmt->execute([$nombre, $email, $password_hash, $rol])){
-                    $success = "Usuario registrado con éxito";
-                } else {
-                    $error = "Error al registrar el usuario";
+                    // Redirigir al login con un mensaje
+                    header("Location: /login.php?success=1");
+                    exit();
                 }
+                
             }
         } catch(PDOException $e) {
             $error = "Error de base de datos: " . $e->getMessage();
         }
     }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
