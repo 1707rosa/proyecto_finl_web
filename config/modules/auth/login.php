@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../../config/db.php';
+include('../../db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'] ?? '';
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['id'] = $user['id'];
         $_SESSION['nombre'] = $user['nombre'];
         $_SESSION['rol'] = $user['rol'];
-        header("Location: ../../incidencias/ver_incidencias.php");
+        header("Location: ../../../incidencias/ver_incidencias.php");
         exit;
     } else {
         echo "Usuario o contraseña incorrectos";
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="../../public/css/login-style.css">
+    <link rel="stylesheet" href="../../../public/css/login-style.css">
 </head>
 
 <body>
