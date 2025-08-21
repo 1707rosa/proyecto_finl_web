@@ -36,6 +36,7 @@ INSERT INTO Barrios (nombre, municipio_id) VALUES
 ('Zona Industrial', 4),
 ('Carretera Montaña', 5);
 
+
 INSERT INTO Incidencias 
 (titulo, descripcion, fecha, muertos, heridos, perdida_estimada_de_RD, redes_link, foto, latitud, longitud, provincia_id, municipio_id, barrio_id, usuario_id, tipo_id)
 VALUES

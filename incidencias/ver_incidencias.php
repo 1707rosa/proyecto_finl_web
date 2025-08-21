@@ -13,7 +13,7 @@ $sql = "
     i.perdida_estimada_de_RD,
     i.latitud,
     i.longitud,
-    i.foto,  -- importante incluir la columna foto si existe en la tabla Incidencias
+    i.foto,
     p.nombre AS provincia,
     m.nombre AS municipio,
     b.nombre AS barrio,
@@ -43,7 +43,7 @@ $result = $conn->query($sql);
             max-width: 100px;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/styles.css">
 </head>
 
@@ -51,12 +51,13 @@ $result = $conn->query($sql);
     <?php include('../public/Components/navbar.php'); ?>
 
     <div class="container-fluid">
-        <div class="p-2 m-2">
-            <h2 class="text-center text-primary">Incidencias Registradas</h2>
+        <div class="p-2 m-2 d-flex justify-content-between align-items-center">
+            <h2 class="text-primary">Incidencias Registradas</h2>
             <a class="btn btn-primary" href="./registro_incidencia.php">Registrar Incidencia</a>
         </div>
-        <table class="table m-1">
-            <thead class="table-primary">
+        
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary text-center">
                 <tr>
                     <th>ID</th>
                     <th>Título</th>
@@ -68,6 +69,7 @@ $result = $conn->query($sql);
                     <th>Usuario</th>
                     <th>Fecha</th>
                     <th>Foto</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
 
@@ -83,12 +85,20 @@ $result = $conn->query($sql);
                         <td><?= htmlspecialchars($row['tipo_incidencia']) ?></td>
                         <td><?= htmlspecialchars($row['usuario']) ?></td>
                         <td><?= htmlspecialchars($row['fecha']) ?></td>
-                        <td>
+                        <td class="text-center">
                             <?php if (!empty($row['foto'])): ?>
                                 <img src="<?= htmlspecialchars($row['foto']) ?>" alt="Foto">
                             <?php else: ?>
                                 Sin foto
                             <?php endif; ?>
+                        </td>
+                        <td class="text-center">
+                            <a href="editar_incidencia.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="eliminar_incidencia.php?id=<?= $row['id'] ?>" 
+                               class="btn btn-danger btn-sm"
+                               onclick="return confirm('¿Seguro que deseas eliminar esta incidencia?');">
+                                Eliminar
+                            </a>
                         </td>
                     </tr>
                 <?php endwhile; ?>
@@ -98,6 +108,5 @@ $result = $conn->query($sql);
 
     <?php include('../public/Components/footer.php'); ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </html>
