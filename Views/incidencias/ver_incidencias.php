@@ -43,6 +43,7 @@ $result = $conn->query($sql);
             max-width: 100px;
         }
     </style>
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/ver_incidencias.php
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="../../public/css/styles.css">
@@ -50,6 +51,15 @@ $result = $conn->query($sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/styles.css">
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/ver_incidencias.php
+=======
+<<<<<<<< HEAD:incidencias/ver_incidencias.php
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/styles.css">
+========
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/css/styles.css">
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/ver_incidencias.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 </head>
 
 <body>

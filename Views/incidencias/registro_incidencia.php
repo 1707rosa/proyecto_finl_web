@@ -14,6 +14,7 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
 <head>
     <meta charset="UTF-8">
     <title>Registrar Incidencia</title>
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/registro_incidencia.php
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="../../public/css/styles.css"> <!-- Asegúrate que el nombre sea correcto -->
@@ -21,36 +22,68 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../public/css/styles.css">
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/registro_incidencia.php
+=======
+<<<<<<<< HEAD:incidencias/registro_incidencia.php
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/styles.css">
+========
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../public/css/styles.css"> <!-- Asegúrate que el nombre sea correcto -->
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 </head>
 <body>
 <?php include('../public/Components/navbar.php'); ?>
 
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/registro_incidencia.php
+=======
+<<<<<<<< HEAD:incidencias/registro_incidencia.php
+<div class="container mt-3">
+    <h2 class="text-primary">Registrar Incidencia</h2>
+
+    <form action="procesar_incidencia.php" method="POST" enctype="multipart/form-data">
+========
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
     <?php include('../../public/Components/navbar.php'); //navbar 
     ?>
 
     <div class="container home">
         <h2 class="text-primary">Registrar Incidencia</h2>
+<<<<<<< HEAD
 =======
 <div class="container mt-3">
     <h2 class="text-primary">Registrar Incidencia</h2>
 
     <form action="procesar_incidencia.php" method="POST" enctype="multipart/form-data">
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/registro_incidencia.php
+=======
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 
         <div class="form-group mb-2">
             <label class="required">Título</label>
             <input type="text" name="titulo" class="form-control" placeholder="Ej: Accidente en autopista" required>
         </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/registro_incidencia.php
         <form action="./procesar_incidencia.php" method="POST" enctype="multipart/form-data">
 =======
+=======
+<<<<<<<< HEAD:incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
         <div class="form-group mb-2">
             <label class="required">Descripción</label>
             <textarea name="descripcion" class="form-control" placeholder="Describe lo ocurrido..." required></textarea>
         </div>
+<<<<<<< HEAD
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/registro_incidencia.php
+=======
+========
+        <form action="./procesar_incidencia.php" method="POST" enctype="multipart/form-data">
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 
         <div class="form-group mb-2">
             <label class="required">Provincia</label>
@@ -92,7 +125,16 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
             </select>
         </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/registro_incidencia.php
+=======
+<<<<<<<< HEAD:incidencias/registro_incidencia.php
+        <div class="form-group mb-2">
+            <label class="required">Fecha</label>
+            <input type="date" name="fecha" class="form-control" required>
+        </div>
+========
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
             <div class="form-group">
                 <label class="required">Tipo de incidencia</label>
                 <select id="tipoSelect" onchange="checkTipo(this)" class="form-control">
@@ -104,12 +146,16 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
                 </select>
                 <input type="text" name="tipo" id="tipoInput" placeholder="Escribe tu tipo..." class="form-control">
             </div>
+<<<<<<< HEAD
 =======
         <div class="form-group mb-2">
             <label class="required">Fecha</label>
             <input type="date" name="fecha" class="form-control" required>
         </div>
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/registro_incidencia.php
+=======
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 
         <div class="form-group mb-2">
             <label>Foto (opcional)</label>
@@ -122,7 +168,12 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
     </form>
 </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD:Views/incidencias/registro_incidencia.php
+=======
+<<<<<<<< HEAD:incidencias/registro_incidencia.php
+========
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
             <div>
                 <button type="submit" class="btn btn-primary">Registrar Incidencia</button>
                 <a class="btn btn-danger" href="./ver_incidencias.php">Cancelar</a>
@@ -133,8 +184,12 @@ $tipos = $conn->query("SELECT id, nombre FROM Tipos_incidencias ORDER BY nombre"
     ?>
 
 </body>
+<<<<<<< HEAD
 =======
 >>>>>>> 97fd42e (Mis cambios en incidencias):incidencias/registro_incidencia.php
+=======
+>>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb:Views/incidencias/registro_incidencia.php
+>>>>>>> bb4e7254fb2573e34ff570c3c5215f43c3a898cb
 <script>
 function previewImage(event) {
     const reader = new FileReader();
