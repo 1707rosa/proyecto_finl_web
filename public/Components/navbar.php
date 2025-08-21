@@ -1,3 +1,9 @@
+<?php 
+
+$base_url= 'localhost/proyecto_finl_web';
+
+?> 
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black mb-2 p-3">
     <div class="container-fluid">
@@ -7,7 +13,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="../Views/dashboard.php">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link active" href="<?php echo $base_url ?>/Views/dashboard.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="../Views/Mapa/mapa.php">Mapa de Incidencias</a></li>
                 <li class="nav-item"><a class="nav-link" href="?vista=Acerca">Acerca</a></li>
 

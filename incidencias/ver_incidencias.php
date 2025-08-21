@@ -1,9 +1,35 @@
 <?php
 include("../config/db.php"); // Conexión a la base de datos
 
-$result = $conn->query("SELECT * FROM incidencias ORDER BY fecha DESC");
+// Consulta con todas las relaciones
+$sql = "
+ SELECT 
+    i.id,
+    i.titulo,
+    i.descripcion,
+    i.fecha,
+    i.muertos,
+    i.heridos,
+    i.perdida_estimada_de_RD,
+    i.latitud,
+    i.longitud,
+    i.foto,  -- importante incluir la columna foto si existe en la tabla Incidencias
+    p.nombre AS provincia,
+    m.nombre AS municipio,
+    b.nombre AS barrio,
+    u.nombre AS usuario,
+    t.nombre AS tipo_incidencia
+FROM Incidencias i
+INNER JOIN Provincias p ON i.provincia_id = p.id
+INNER JOIN Municipios m ON i.municipio_id = m.id
+INNER JOIN Barrios b ON i.barrio_id = b.id
+INNER JOIN Usuarios u ON i.usuario_id = u.id
+INNER JOIN Tipos_incidencias t ON i.tipo_id = t.id
+ORDER BY i.fecha DESC
+";
 
-
+// Ejecutamos la consulta
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +48,7 @@ $result = $conn->query("SELECT * FROM incidencias ORDER BY fecha DESC");
 </head>
 
 <body>
-    <?php include('../public/Components/navbar.php'); //navbar 
-    ?>
+    <?php include('../public/Components/navbar.php'); ?>
 
     <div class="container-fluid">
         <div class="p-2 m-2">
@@ -32,29 +57,35 @@ $result = $conn->query("SELECT * FROM incidencias ORDER BY fecha DESC");
         </div>
         <table class="table m-1">
             <thead class="table-primary">
-                <th>ID</th>
-                <th>Título</th>
-                <th>Descripción</th>
-                <th>Provincia</th>
-                <th>Municipio</th>
-                <th>Tipo</th>
-                <th>Fecha</th>
-                <th>Foto</th>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Provincia</th>
+                    <th>Municipio</th>
+                    <th>Barrio</th>
+                    <th>Tipo</th>
+                    <th>Usuario</th>
+                    <th>Fecha</th>
+                    <th>Foto</th>
+                </tr>
             </thead>
 
             <tbody>
                 <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)): ?>
                     <tr>
-                        <td><?= $row['id'] ?></td>
-                        <td><?= $row['titulo'] ?></td>
-                        <td><?= $row['descripcion'] ?></td>
-                        <td><?= $row['provincia'] ?></td>
-                        <td><?= $row['municipio'] ?></td>
-                        <td><?= $row['tipo'] ?></td>
-                        <td><?= $row['fecha'] ?></td>
+                        <td><?= htmlspecialchars($row['id']) ?></td>
+                        <td><?= htmlspecialchars($row['titulo']) ?></td>
+                        <td><?= htmlspecialchars($row['descripcion']) ?></td>
+                        <td><?= htmlspecialchars($row['provincia']) ?></td>
+                        <td><?= htmlspecialchars($row['municipio']) ?></td>
+                        <td><?= htmlspecialchars($row['barrio']) ?></td>
+                        <td><?= htmlspecialchars($row['tipo_incidencia']) ?></td>
+                        <td><?= htmlspecialchars($row['usuario']) ?></td>
+                        <td><?= htmlspecialchars($row['fecha']) ?></td>
                         <td>
-                            <?php if ($row['foto']): ?>
-                                <img src="<?= $row['foto'] ?>" alt="Foto">
+                            <?php if (!empty($row['foto'])): ?>
+                                <img src="<?= htmlspecialchars($row['foto']) ?>" alt="Foto">
                             <?php else: ?>
                                 Sin foto
                             <?php endif; ?>
@@ -65,9 +96,8 @@ $result = $conn->query("SELECT * FROM incidencias ORDER BY fecha DESC");
         </table>
     </div>
 
-    <?php include('../public/Components/footer.php'); //footer 
-    ?>
+    <?php include('../public/Components/footer.php'); ?>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 </html>
