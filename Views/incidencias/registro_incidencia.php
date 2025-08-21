@@ -15,15 +15,15 @@ session_start();
     <meta charset="UTF-8">
     <title>Registrar Incidencia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/styles.css"> <!-- Asegúrate que el nombre sea correcto -->
+    <link rel="stylesheet" href="../../public/css/styles.css"> <!-- Asegúrate que el nombre sea correcto -->
 </head>
 
 <body>
 
-    <?php include('../public/Components/navbar.php'); //navbar 
+    <?php include('../../public/Components/navbar.php'); //navbar 
     ?>
 
-    <div class="container">
+    <div class="container home">
         <h2 class="text-primary">Registrar Incidencia</h2>
 
         <!-- Mensajes de éxito o error -->
@@ -38,7 +38,7 @@ session_start();
         }
         ?>
 
-        <form action="procesar_incidencia.php" method="POST" enctype="multipart/form-data">
+        <form action="./procesar_incidencia.php" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label class="required">Título</label>
@@ -69,7 +69,7 @@ session_start();
                     <option value="Otro">Otro</option>
                     <option value="personalizado">Otro (escribe)</option>
                 </select>
-                <input type="text" name="tipo" id="tipoInput" placeholder="Escribe tu tipo..." style="display:none; class=" form-control"">
+                <input type="text" name="tipo" id="tipoInput" placeholder="Escribe tu tipo..." class="form-control">
             </div>
 
             <div class="form-group">
@@ -89,7 +89,7 @@ session_start();
             </div>
         </form>
     </div>
-    <?php include('../public/Components/footer.php'); //footer 
+    <?php include('../../public/Components/footer.php'); //footer 
     ?>
 
 </body>
@@ -119,5 +119,6 @@ session_start();
         }
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 </html>

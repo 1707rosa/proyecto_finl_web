@@ -1,5 +1,5 @@
 <?php
-include("../config/db.php"); // Conexión a la base de datos
+include("../../config/db.php"); // Conexión a la base de datos
 
 // Consulta con todas las relaciones
 $sql = "
@@ -44,11 +44,11 @@ $result = $conn->query($sql);
         }
     </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="stylesheet" href="../../public/css/styles.css">
 </head>
 
 <body>
-    <?php include('../public/Components/navbar.php'); ?>
+    <?php include('../../public/Components/navbar.php'); ?>
 
     <div class="container-fluid">
         <div class="p-2 m-2">
@@ -96,7 +96,7 @@ $result = $conn->query($sql);
         </table>
     </div>
 
-    <?php include('../public/Components/footer.php'); ?>
+    <?php include('../../public/Components/footer.php'); ?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
