@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$db   = "proyectofinalweb"; //aqui se coloca el nombre de la base de datos
+$db   = "sir"; //aqui se coloca el nombre de la base de datos
 $user = "root";
-$pass = "santa123#"; //si no tiene password dejar en blanco(en mi caso si tengo)
+$pass = ""; //si no tiene password dejar en blanco(en mi caso si tengo)
 
 try {
     $conn = new PDO("mysql:host=localhost;dbname=$db;charset=utf8", $user, $pass);

@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //Validacion de registro de usuario
-include 'conexion.php';
+include('../../config/db.php');
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $nombre = trim($_POST['nombre']);
@@ -33,13 +33,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $password_hash = password_hash($password, PASSWORD_DEFAULT);
                 
                 // Insertar nuevo usuario
-                $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO usuarios (nombre, email, contraseña, rol) VALUES (?, ?, ?, ?)");
 
 
 
                 if($stmt->execute([$nombre, $email, $password_hash, $rol])){
                     // Redirigir al login con un mensaje
-                    header("Location: /login.php?success=1");
+                    header("Location: ./login.php");
                     exit();
                 }
                 
@@ -66,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
-    <link rel="stylesheet" href="/public/css/stylelog.css">
+    <link rel="stylesheet" href="../../public/css/stylelog.css">
 </head>
 <body>
     <div class="form-container">

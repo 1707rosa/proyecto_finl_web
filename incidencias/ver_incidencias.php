@@ -1,7 +1,7 @@
 <?php
 include("../config/db.php"); // Conexión a la base de datos
 
-$result = $conn->query("SELECT * FROM incidencias ORDER BY created_at DESC");
+$result = $conn->query("SELECT * FROM incidencias ORDER BY fecha DESC");
 ?>
 
 <!DOCTYPE html>
