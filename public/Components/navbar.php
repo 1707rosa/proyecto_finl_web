@@ -41,10 +41,7 @@ $base_url = $protocolo . $host . $projectFolder;
                         <li>
                             <a class="dropdown-item" href="<?= $base_url ?>/?vista=Perfil">Perfil</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="<?= $base_url ?>/Views/incidencias/ver_incidencias.php">Listado de Incidencias</a>
-                        </li>
-                        <li><a class="dropdown-item" href="<?= $base_url ?>/Views/Configuracion/Incidencias/lista_incidencias.php">Detalles de Incidencias</a></li>
+                        <li><a class="dropdown-item" href="<?= $base_url ?>/Views/Configuracion/Incidencias/lista_incidencias.php">Listado de Incidencias</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../config/db.php"); // Conexión PDO
+include("../../config/db.php"); // Conexión PDO
 
 if (!isset($_GET['id'])) {
     die("ID no proporcionado.");

@@ -19,7 +19,7 @@ try {
         INNER JOIN Municipios m ON i.municipio_id = m.id
         INNER JOIN Barrios b ON i.barrio_id = b.id
         INNER JOIN Usuarios u ON i.usuario_id = u.id
-        WHERE i.fecha >= NOW() - INTERVAL 1 DAY
+  
     ");
     $stmt->execute();
     $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);

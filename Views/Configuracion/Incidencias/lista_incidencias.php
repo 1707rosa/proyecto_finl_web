@@ -79,6 +79,7 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,10 +88,11 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../public/css/lista-styles.css">
 </head>
+
 <body>
     <?php include('../../../public/Components/navbar.php'); ?>
-    
-    <div class="container">
+
+    <div class="container-fluid">
         <header class="page-header mt-4">
             <h1><i class="fas fa-list"></i> Lista de Incidencias</h1>
         </header>
@@ -102,17 +104,17 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="busqueda">Búsqueda</label>
-                            <input type="text" class="form-control" id="busqueda" name="busqueda" 
-                                   placeholder="Buscar por título o descripción..." 
-                                   value="<?php echo htmlspecialchars($busqueda); ?>">
+                            <input type="text" class="form-control" id="busqueda" name="busqueda"
+                                placeholder="Buscar por título o descripción..."
+                                value="<?php echo htmlspecialchars($busqueda); ?>">
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="provincia">Provincia</label>
                             <select class="form-control" id="provincia" name="provincia">
                                 <option value="">Todas</option>
                                 <?php foreach ($provincias as $provincia): ?>
-                                    <option value="<?php echo htmlspecialchars($provincia); ?>" 
-                                            <?php echo ($filtro_provincia === $provincia) ? 'selected' : ''; ?>>
+                                    <option value="<?php echo htmlspecialchars($provincia); ?>"
+                                        <?php echo ($filtro_provincia === $provincia) ? 'selected' : ''; ?>>
                                         <?php echo htmlspecialchars($provincia); ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -123,8 +125,8 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                             <select class="form-control" id="tipo" name="tipo">
                                 <option value="">Todos</option>
                                 <?php foreach ($tipos as $tipo): ?>
-                                    <option value="<?php echo htmlspecialchars($tipo); ?>" 
-                                            <?php echo ($filtro_tipo === $tipo) ? 'selected' : ''; ?>>
+                                    <option value="<?php echo htmlspecialchars($tipo); ?>"
+                                        <?php echo ($filtro_tipo === $tipo) ? 'selected' : ''; ?>>
                                         <?php echo htmlspecialchars($tipo); ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -132,13 +134,13 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="fecha_inicio">Fecha desde</label>
-                            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" 
-                                   value="<?php echo htmlspecialchars($filtro_fecha_inicio); ?>">
+                            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio"
+                                value="<?php echo htmlspecialchars($filtro_fecha_inicio); ?>">
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="fecha_fin">Fecha hasta</label>
-                            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" 
-                                   value="<?php echo htmlspecialchars($filtro_fecha_fin); ?>">
+                            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin"
+                                value="<?php echo htmlspecialchars($filtro_fecha_fin); ?>">
                         </div>
                         <div class="col-md-6 mb-3 d-flex align-items-end">
                             <button type="submit" class="btn btn-primary me-2">
@@ -172,9 +174,11 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                                 <tr>
                                     <th>ID</th>
                                     <th>Título</th>
+                                    <th>Descripción</th>
                                     <th>Tipo</th>
                                     <th>Provincia</th>
                                     <th>Municipio</th>
+                                    <th>Barrio</th>
                                     <th>Fecha</th>
                                     <th>Acciones</th>
                                 </tr>
@@ -184,6 +188,8 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                                     <tr>
                                         <td><?php echo $incidencia['id']; ?></td>
                                         <td><?php echo htmlspecialchars($incidencia['titulo']); ?></td>
+                                        <td><?= htmlspecialchars($incidencia['descripcion']) ?></td>
+
                                         <td>
                                             <span class="badge bg-info">
                                                 <?php echo htmlspecialchars($incidencia['tipo_incidencia']); ?>
@@ -191,11 +197,18 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
                                         </td>
                                         <td><?php echo htmlspecialchars($incidencia['provincia']); ?></td>
                                         <td><?php echo htmlspecialchars($incidencia['municipio']); ?></td>
+                                        <td><?php echo htmlspecialchars($incidencia['barrio']); ?></td>
                                         <td><?php echo date('d/m/Y', strtotime($incidencia['fecha'])); ?></td>
                                         <td>
-                                            <a href="detalle_incidencia.php?id=<?php echo $incidencia['id']; ?>" 
-                                               class="btn btn-sm btn-outline-primary">
+                                            <a href="detalle_incidencia.php?id=<?php echo $incidencia['id']; ?>"
+                                                class="btn btn-sm btn-outline-primary">
                                                 <i class="fas fa-eye"></i> Ver
+                                            </a>
+                                            <a href="editar_incidencia.php?id=<?= $incidencia['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="eliminar_incidencia.php?id=<?= $incidencia['id'] ?>"
+                                                class="btn btn-danger btn-sm"
+                                                onclick="return confirm('¿Seguro que deseas eliminar esta incidencia?');">
+                                                Eliminar
                                             </a>
                                         </td>
                                     </tr>
@@ -209,7 +222,8 @@ $tipos = $stmt_tipos->fetchAll(PDO::FETCH_COLUMN);
     </div>
 
     <?php include('../../../public/Components/footer.php'); ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
