@@ -41,9 +41,9 @@ function openModal(inc) {
     inc.perdida_estimada_de_RD || 0;
   document.getElementById("redes").innerText = inc.redes_link || "#";
 
-
-  document.getElementById('inc_id').value = inc.id;
-      cargarComentarios(inc.id);
+  document.getElementById("int_id").innerText = inc.id;
+  document.getElementById("inc_id").value = inc.id;
+  cargarComentarios(inc.id);
 
   // Condición para la foto
   const fotoEl = document.getElementById("foto");

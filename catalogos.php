@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'php/db_connect.php';
+require 'config/db.php';
 
 // Solo administradores
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'administrador') {

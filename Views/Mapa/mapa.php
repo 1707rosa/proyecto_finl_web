@@ -54,6 +54,7 @@ session_start();
                     <h4 id="titulo"></h4>
                     <p id="descripcion"></p>
                     <ul class="list-group">
+                        <li class="list-group-item"><strong>Incidencia No:</strong> <span id="int_id"></span></li>
                         <li class="list-group-item"><strong>Tipo:</strong> <span id="tipo"></span></li>
                         <li class="list-group-item"><strong>Fecha:</strong> <span id="fecha"></span></li>
                         <li class="list-group-item"><strong>Provincia:</strong> <span id="provincia"></span></li>
@@ -189,7 +190,7 @@ session_start();
     </div>
 
 
-    <?php include('../../public/Components/footer.php'); //navbar 
+    <?php include('../../public/Components/footer.php'); //footer 
     ?>
 
 </body>
