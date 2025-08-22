@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'php/db_connect.php';
+require 'config/db.php';
 if (!isset($_SESSION['rol']) || !in_array($_SESSION['rol'], ['validador','administrador'])) {
-    header("Location: ../login.php"); exit();
+    header("Location: config/modules/auth/login.php"); exit();
 }
 $stmt = $conn->prepare("SELECT * FROM incidencias WHERE aprobado=0 ORDER BY fecha DESC");
 $stmt->execute();

@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'db_connect.php';
+require '../../../config/db.php';
 
-if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'administrador') {
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != 'admin') {
     die("Acceso denegado");
 }
 
@@ -36,5 +36,5 @@ try {
     die("Error en la operación: " . $e->getMessage());
 }
 
-header("Location: ../catalogos.php");
+header("Location: ../catalogo/catalogos.php");
 exit;

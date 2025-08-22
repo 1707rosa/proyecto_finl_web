@@ -1,7 +1,7 @@
 <?php
 session_start();
-require 'php/db_connect.php';
-if (!isset($_SESSION['rol'])) { header("Location: ../login.php"); exit(); }
+require './config/db.php';
+if (!isset($_SESSION['rol'])) { header("Location: config/modules/auth/login.php"); exit(); }
 $tipos = $conn->query("SELECT nombre, COUNT(*) as total FROM incidencias GROUP BY nombre_tipo")->fetchAll(PDO::FETCH_ASSOC);
 $labels = json_encode(array_column($tipos,'nombre'));
 $datos = json_encode(array_column($tipos,'total'));
