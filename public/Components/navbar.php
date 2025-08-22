@@ -26,9 +26,6 @@ $base_url = $protocolo . $host . $projectFolder;
                     <a class="nav-link active" href="<?= $base_url ?>/Views/Mapa/mapa.php">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $base_url ?>/Views/Mapa/mapa.php">Catalogo</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="<?= $base_url ?>/Views/super/dashboard.php">Super</a>
                 </li>
 
@@ -38,11 +35,9 @@ $base_url = $protocolo . $host . $projectFolder;
                         Configuración
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <a class="dropdown-item" href="<?= $base_url ?>/?vista=Perfil">Perfil</a>
-                        </li>
+
                         <li><a class="dropdown-item" href="<?= $base_url ?>/Views/Configuracion/Incidencias/lista_incidencias.php">Listado de Incidencias</a></li>
-                        <li><a class="dropdown-item" href="<?= $base_url ?>/Views/Configuracion/Incidencias/lista_incidencias.php">Catalogo</a></li>
+                        <li><a class="dropdown-item" href="<?= $base_url ?>/Views/Configuracion/catalogo/catalogos.php">Catalogo</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

@@ -1,17 +1,6 @@
 <?php
 include('../../config/db.php');
-session_start(); // ¡Debe ir al inicio antes de cualquier output!
-
-
-
-
-$correcciones = $conn->query("
-    SELECT c.id, c.incidencias_id, c.campo, c.sugerencia, c.estado,
-           u.nombre AS usuario_nombre, u.apellido AS usuario_apellido
-    FROM Correcciones c
-    JOIN Usuarios u ON u.id = c.usuarios_id
-    ORDER BY c.id DESC
-")->fetchAll(PDO::FETCH_ASSOC);
+session_start();
 ?>
 
 <div class="container mt-4">
@@ -24,7 +13,6 @@ $correcciones = $conn->query("
         </button>
     </div>
 
-    <!-- Tabla responsiva -->
     <div class="table-responsive">
         <table class="table table-striped table-hover align-middle">
             <thead class="table-dark">
@@ -74,7 +62,7 @@ $correcciones = $conn->query("
                         <label>Valor sugerido</label>
                         <input type="text" name="sugerencia" class="form-control" required>
                     </div>
-                    <input type="hidden" name="usuarios_id" value="<?php echo $_SESSION['id'] ?>">
+                    <input type="hidden" name="usuarios_id" value="<?php echo $_SESSION['id']; ?>">
                     <div class="text-end">
                         <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i> Agregar</button>
                     </div>
@@ -83,4 +71,3 @@ $correcciones = $conn->query("
         </div>
     </div>
 </div>
-
